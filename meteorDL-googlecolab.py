@@ -309,4 +309,4 @@ if __name__ == "__main__":
 	video_stream_widget.DetectFromStream(detector, save_output=args.save_output, output_dir=args.output_directory)
 
 	print("Done ...")
-	cv2.destroyAllWindows()
+	# cv2.destroyAllWindows()
