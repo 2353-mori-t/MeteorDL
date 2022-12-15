@@ -35,6 +35,7 @@ class DetectorTF2:
 		# Expand dimensions since the model expects images to have shape: [1, None, None, 3]
 		input_tensor = np.expand_dims(img, 0)
 		detections = self.detect_fn(input_tensor)
+		print('detections:', detections)
 
 		bboxes = detections['detection_boxes'][0].numpy()
 		bclasses = detections['detection_classes'][0].numpy().astype(np.int32)
