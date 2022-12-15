@@ -35,7 +35,6 @@ class DetectorTF2:
 		# Expand dimensions since the model expects images to have shape: [1, None, None, 3]
 		input_tensor = np.expand_dims(img, 0)
 		detections = self.detect_fn(input_tensor)
-		print('detections:', detections)
 
 		bboxes = detections['detection_boxes'][0].numpy()
 		bclasses = detections['detection_classes'][0].numpy().astype(np.int32)
@@ -48,9 +47,9 @@ class DetectorTF2:
 	def ExtractBBoxes(self, bboxes, bclasses, bscores, im_width, im_height):
 		bbox = []
 		for idx in range(len(bboxes)):
-			print(idx)
 			if self.class_id is None or bclasses[idx] in self.class_id:
 				if bscores[idx] >= self.Threshold:
+					print('idx:', idx, 'score:', bscores[idx])
 					y_min = int(bboxes[idx][0] * im_height)
 					x_min = int(bboxes[idx][1] * im_width)
 					y_max = int(bboxes[idx][2] * im_height)
