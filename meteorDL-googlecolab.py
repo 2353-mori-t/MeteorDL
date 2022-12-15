@@ -193,6 +193,7 @@ class VideoStreamWidget(object):
 				self.det_boxes = detector.DetectFromImage(img)
 				#self.det_boxes = self.det_boxes[:][5] > 0.1
 				img_clean = img
+				print('det_boxes', self.det_boxes)
 				if self.det_boxes[0][5] > 0.1:
 					img = detector.DisplayDetections(img, self.det_boxes[:1])
 
