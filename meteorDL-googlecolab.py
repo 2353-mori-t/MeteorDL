@@ -199,7 +199,7 @@ class VideoStreamWidget(object):
 				t4 = time.time()
 				img_small = cv2.resize(img, (928, 522), interpolation = cv2.INTER_AREA)
 				# cv2.imshow('Meteor detection',	img_small)
-				cv2.imwrite(img_small)
+				cv2.imwrite('Meteordetection.jpg', img_small)
 				# key = cv2.waitKeyEx(1) # TODO: Fix
 				key = 27 
 				# trigger the saving if signal above the mean noise and sky background below the daytime brightness 
