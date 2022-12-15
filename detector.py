@@ -48,6 +48,7 @@ class DetectorTF2:
 	def ExtractBBoxes(self, bboxes, bclasses, bscores, im_width, im_height):
 		bbox = []
 		for idx in range(len(bboxes)):
+			print(idx)
 			if self.class_id is None or bclasses[idx] in self.class_id:
 				if bscores[idx] >= self.Threshold:
 					y_min = int(bboxes[idx][0] * im_height)
